@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useInsertionEffect, useState } from 'react'
 import './App.css'
 import Card from './components/Card/Card'
 
@@ -51,12 +51,15 @@ function App() {
     // Atualiza o estado "itens" com os resultados da API
     setItens(results)
 
-    
   }
 
-  // Chamando a função que carrega dados da API
+    useInsertionEffect(function () {
+      // Chamando a função que carrega dados da API
   carregarDadosApi()
 
+    }, [] )
+
+  
   return (
     <>
       <div className="cards">
